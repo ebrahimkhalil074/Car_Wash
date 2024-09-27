@@ -15,7 +15,7 @@ import { toast } from 'sonner';
 
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: 'http://localhost:5000/api',
+  baseUrl: 'https://car-wash-itrk.vercel.app/api',
   credentials: 'include',
   prepareHeaders: (headers, { getState }) => {
     const token = (getState() as RootState).auth.token;
@@ -46,7 +46,7 @@ if (result?.error?.status === 403) {
     toast.error(`somthing went worng ${result.error?.status}`)
     console.log('Sending refresh token');
 
-    const res = await fetch('http://localhost:5000/api/auth/refresh-token',{
+    const res = await fetch('https://car-wash-itrk.vercel.app/api/auth/refresh-token',{
       method:'POST',
       credentials:'include', 
       
